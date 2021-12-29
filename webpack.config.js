@@ -56,7 +56,11 @@ module.exports = {
             hot: true
           }
         }]
-      }
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ]
   },
   plugins: [
