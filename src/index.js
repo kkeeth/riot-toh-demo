@@ -1,8 +1,9 @@
 import '@riotjs/hot-reload'
 import { component } from 'riot'
 import App from './app.riot'
-import "ress"
 import registerGlobalComponents from './register-global-components'
+import "ress"
+import "./style.css"
 
 // register
 registerGlobalComponents()
