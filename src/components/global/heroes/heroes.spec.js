@@ -1,4 +1,4 @@
-import MyComponent from './heroes.riot'
+import MyComponent from './my-component.riot'
 import { expect } from 'chai'
 import { component } from 'riot'
 
