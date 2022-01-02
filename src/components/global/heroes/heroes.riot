@@ -11,29 +11,25 @@
     </li>
   </ul>
 
-  <div if={ selectedHero.id }>
-    <h2>{ selectedHero.name.toUpperCase() } Details</h2>
-    <div><span>id: </span>{ selectedHero.id }</div>
-    <div>
-      <label>name:
-        <input
-          type="text"
-          value={ selectedHero.name }
-          placeholder="name"
-          oninput={ handleInput }
-        />
-      </label>
-    </div>
-  </div>
+  <hero-detail hero={ selectedHero } handle-input={ handleInput } />
 
   <script>
     import { HEROES } from './mock-heroes';
+    import HeroDetail from '../hero-detail/hero-detail.riot';
 
     export default {
+      components: {
+        HeroDetail
+      },
       heroes: HEROES,
       selectedHero: {},
       handleInput(e) {
         this.selectedHero.name = e.target.value;
+        this.heroes.forEach((item) => {
+          if (item.id === this.selectedHero.id) {
+            item.name = e.target.value;
+          }
+        });
         this.update();
       },
       handleSelect(e) {
