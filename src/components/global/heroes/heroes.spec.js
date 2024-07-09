@@ -1,17 +1,17 @@
-import MyComponent from './my-component.riot'
-import { expect } from 'chai'
-import { component } from 'riot'
+import Heroes from "./heroes.riot";
+import { expect } from "chai";
+import { component } from "riot";
 
-describe('My Component Unit Test', () => {
-  const mountMyComponent = component(MyComponent)
+describe("Heroes Component Unit Test", () => {
+  const mountHeroes = component(Heroes);
 
-  it('The component properties are properly rendered', () => {
-    const div = document.createElement('div')
+  it("The component properties are properly rendered", () => {
+    const div = document.createElement("div");
 
-    const component = mountMyComponent(div, {
-      message: 'hello'
-    })
+    const component = mountHeroes(div, {
+      message: "hello",
+    });
 
-    expect(component.$('p').innerHTML).to.be.equal('hello')
-  })
-})
+    expect(component.$("p").innerHTML).to.be.equal("hello");
+  });
+});
