@@ -3,10 +3,10 @@
   <ul class="heroes">
     <li
       each={ hero in heroes }
-
     >
       <button
         type="button"
+        class={ hero.id === selectedHero.id && 'selected'}
         onclick={ handleSelect }
         data={ hero }
       >
@@ -16,20 +16,22 @@
     </li>
   </ul>
 
-  <h2>{ hero.name.toUpperCase() } Details</h2>
-  <div>
-    <span>id: </span>{ hero.id }
-  </div>
-  <div>
-    <label for="hero-name">name:
-      <input
-        id="hero-name"
-        type="text"
-        value={ hero.name }
-        placeholder="name"
-        oninput={ handleInput }
-      />
-    </label>
+  <div if={ selectedHero.id }>
+    <h2>{ selectedHero.name.toUpperCase() } Details</h2>
+    <div>
+      <span>id: </span>{ selectedHero.id }
+    </div>
+    <div>
+      <label for="hero-name">name:
+        <input
+          id="hero-name"
+          type="text"
+          value={ selectedHero.name }
+          placeholder="name"
+          oninput={ handleInput }
+        />
+      </label>
+    </div>
   </div>
 
   <script>
@@ -37,17 +39,14 @@
 
     export default {
       heroes: HEROES,
-      hero: {
-        id: 1,
-        name: 'Windstorm'
-      },
+      selectedHero: {},
       handleInput(e) {
-        this.hero.name = e.target.value;
+        this.selectedHero.name = e.target.value;
         this.update();
       },
       handleSelect(e) {
-        this.hero.id = e.target.closest('button').data.id;
-        this.hero.name = e.target.closest('button').data.name;
+        this.selectedHero.id = e.target.closest('button').data.id;
+        this.selectedHero.name = e.target.closest('button').data.name;
         this.update();
       }
     }
