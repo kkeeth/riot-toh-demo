@@ -19,12 +19,15 @@
   <hero-detail hero={ selectedHero } handle-input={ handleInput } />
 
   <script>
-    import { HEROES } from './mock-heroes';
+    import { getHeroes } from '@/services/hero.service';
     import HeroDetail from '../hero-detail/hero-detail.riot';
 
     export default {
-      heroes: HEROES,
+      heroes: [],
       selectedHero: {},
+      onBeforeMount() {
+       this.heroes = getHeroes();
+      },
       handleInput(e) {
         this.selectedHero.name = e.target.value;
         this.heroes.forEach((item) => {
