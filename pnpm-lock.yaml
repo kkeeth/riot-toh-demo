@@ -35,7 +35,7 @@ devDependencies:
     specifier: ^4.3.10
     version: 4.4.1
   css-loader:
-    specifier: ^6.5.1
+    specifier: ^6.11.0
     version: 6.11.0(webpack@5.92.1)
   esm:
     specifier: ^3.2.25
@@ -64,6 +64,9 @@ devDependencies:
   ress:
     specifier: ^4.0.0
     version: 4.0.0
+  style-loader:
+    specifier: ^4.0.0
+    version: 4.0.0(webpack@5.92.1)
   webpack:
     specifier: ^5.89.0
     version: 5.92.1(webpack-cli@5.1.4)
@@ -3548,6 +3551,15 @@ packages:
   /strip-json-comments@3.1.1:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
+    dev: true
+
+  /style-loader@4.0.0(webpack@5.92.1):
+    resolution: {integrity: sha512-1V4WqhhZZgjVAVJyt7TdDPZoPBPNHbekX4fWnCJL1yQukhCeZhJySUL+gL9y6sNdN95uEOS83Y55SqHcP7MzLA==}
+    engines: {node: '>= 18.12.0'}
+    peerDependencies:
+      webpack: ^5.27.0
+    dependencies:
+      webpack: 5.92.1(webpack-cli@5.1.4)
     dev: true
 
   /supports-color@5.5.0:

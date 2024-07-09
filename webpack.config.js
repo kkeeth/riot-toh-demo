@@ -60,6 +60,15 @@ export default {
           },
         ],
       },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+          },
+        ],
+      },
     ],
   },
   plugins: [
