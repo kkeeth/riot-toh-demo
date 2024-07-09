@@ -1,11 +1,10 @@
-import './style.css'
-import '@riotjs/hot-reload'
-import { mount } from 'riot'
-import registerGlobalComponents from './register-global-components'
-import "ress"
+import "@riotjs/hot-reload";
+import { component } from "riot";
+import App from "./app.riot";
+import registerGlobalComponents from "./register-global-components.js";
 
 // register
-registerGlobalComponents()
+registerGlobalComponents();
 
-// mount all the global components found in this page
-mount('[data-riot-component]')
+// mount the root tag
+component(App)(document.getElementById("root"));
