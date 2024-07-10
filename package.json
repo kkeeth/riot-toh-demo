@@ -50,6 +50,7 @@
   "dependencies": {
     "@riotjs/hot-reload": "^9.0.1",
     "@riotjs/lazy": "^9.0.0",
+    "@riotjs/observable": "^4.1.1",
     "@riotjs/route": "^9.1.2",
     "riot": "^9.1.1"
   },

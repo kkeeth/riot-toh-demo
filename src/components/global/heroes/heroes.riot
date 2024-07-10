@@ -17,10 +17,12 @@
   </ul>
 
   <hero-detail hero={ selectedHero } handle-input={ handleInput } />
+  <messages />
 
   <script>
     import { getHeroes } from '@/services/hero.service';
-    import HeroDetail from '../hero-detail/hero-detail.riot';
+    import HeroDetail from '@/components/global/hero-detail/hero-detail.riot';
+    import Messages from '@/components/global/messages/messages.riot';
 
     export default {
       heroes: [],
