@@ -27,6 +27,7 @@
       selectedHero: {},
       onBeforeMount() {
        this.heroes = getHeroes();
+       console.log(this.heroes);
       },
       handleInput(e) {
         this.selectedHero.name = e.target.value;
