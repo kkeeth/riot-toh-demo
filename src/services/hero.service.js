@@ -1,6 +1,8 @@
 import { HEROES } from "@/components/global/heroes/mock-heroes";
 import observable from "@riotjs/observable";
 
+import messageService from "@/services/message.service";
+
 const heroService = {
   async getHeroes() {
     try {

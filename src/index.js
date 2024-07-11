@@ -1,4 +1,4 @@
-import "ress";
+// import "ress";
 import "./style.css";
 import "@riotjs/hot-reload";
 import { mount, install } from "riot";

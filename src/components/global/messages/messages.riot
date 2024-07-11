@@ -1,3 +1,18 @@
 <messages>
-  <p>messages</p>
+  <h2>Messages</h2>
+
+  <div each={ message in messages }>{ message }</div>
+
+  <script>
+    import messageService from '@/services/message.service';
+
+    export default {
+     messages: [],
+     onBeforeMount() {
+       messageService.on('messagesAdded', (messages) => {
+         this.messages = messages;
+       });
+     }
+    }
+  </script>
 </messages>
