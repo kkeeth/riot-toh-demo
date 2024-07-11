@@ -1,7 +1,7 @@
 import "ress";
 import "./style.css";
 import "@riotjs/hot-reload";
-import { mount } from "riot";
+import { mount, install } from "riot";
 import registerGlobalComponents from "./register-global-components.js";
 
 // register
