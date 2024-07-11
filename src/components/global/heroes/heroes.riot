@@ -16,7 +16,7 @@
     </li>
   </ul>
 
-  <hero-detail hero={ selectedHero } handle-input={ handleInput } obs={obs} />
+  <hero-detail hero={ selectedHero } handle-input={ handleInput } />
   <messages />
 
   <script>
@@ -32,7 +32,7 @@
           this.heroes = heroes;
         });
 
-        heroService.getHeroes(this.obs);
+        heroService.getHeroes();
       },
       handleInput(e) {
         this.selectedHero.name = e.target.value;
