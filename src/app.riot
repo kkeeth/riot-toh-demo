@@ -22,10 +22,6 @@
             <main is={page.componentName}/>
           </route>
         </div>
-        <!-- notice how <sidebar> is registered as global component -->
-        <div class="column column-40">
-          <sidebar/>
-        </div>
       </div>
     </router>
   </div>
@@ -42,9 +38,9 @@
         Router,
         Route,
         NotFound,
-        Home: lazy(Loader, () => import(
-          /* webpackPrefetch: true, webpackChunkName: 'pages/home' */
-          './pages/home.riot'
+        Heroes: lazy(Loader, () => import(
+          /* webpackPrefetch: true, webpackChunkName: 'pages/heroes' */
+          './pages/heroes.riot'
         )),
         About: lazy(Loader, () => import(
           /* webpackPrefetch: true, webpackChunkName: 'pages/about' */

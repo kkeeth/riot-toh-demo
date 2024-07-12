@@ -1,8 +1,8 @@
 export default [
   {
     path: "/",
-    label: "Home",
-    componentName: "home",
+    label: "Heroes",
+    componentName: "heroes",
   },
   {
     path: "/about",
