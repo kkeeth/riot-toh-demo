@@ -12,15 +12,15 @@
     import messageService from '@/services/message.service';
 
     export default {
-     messages: [],
-     onBeforeMount() {
-       messageService.on('messagesAdded', (messages) => {
-         this.messages = messages;
-       });
-       messageService.on('messagesCleared', (messages) => {
-         this.messages = messages;
-       });
-     },
+      messages: [],
+      onBeforeMount() {
+        messageService.on('messagesAdded', (messages) => {
+          this.messages = messages;
+        });
+        messageService.on('messagesCleared', (messages) => {
+          this.messages = messages;
+        });
+      },
       clearMessages() {
         messageService.clear();
         this.update()

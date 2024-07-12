@@ -9,7 +9,7 @@ const messageService = {
   clear() {
     this.messages = [];
     this.trigger('messagesCleared', this.messages)
-  }
+  },
 };
 
 observable(messageService);
