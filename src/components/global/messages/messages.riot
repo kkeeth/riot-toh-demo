@@ -1,6 +1,11 @@
 <messages>
   <h2>Messages</h2>
 
+  <button
+    type="button"
+    class="clear"
+    onclick={ clearMessages }
+  >Clear messages</button>
   <div each={ message in messages }>{ message }</div>
 
   <script>
@@ -12,7 +17,35 @@
        messageService.on('messagesAdded', (messages) => {
          this.messages = messages;
        });
-     }
+       messageService.on('messagesCleared', (messages) => {
+         this.messages = messages;
+       });
+     },
+      clearMessages() {
+        messageService.clear();
+        this.update()
+      },
     }
   </script>
+  <style>
+    /* MessagesComponent's private CSS styles */
+    h2 {
+      color: #A80000;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: lighter;
+    }
+
+    .clear {
+      color: #333;
+      background-color: #eee;
+      margin-bottom: 12px;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .clear:hover {
+      color: white;
+      background-color: #42545C;
+    }
+  </style>
 </messages>
