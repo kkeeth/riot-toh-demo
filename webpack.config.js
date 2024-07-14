@@ -49,9 +49,7 @@ export default {
   devServer: {
     hot: true,
     open: true,
-    historyApiFallback: {
-      index: "index.html",
-    },
+    historyApiFallback: true,
   },
   resolve: {
     alias: {
