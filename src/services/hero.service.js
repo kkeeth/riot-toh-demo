@@ -24,7 +24,7 @@ const heroService = {
       messageService.add(`HeroService: fetched hero id=${id}`);
       this.trigger('getHero', hero)
     } catch (error) {
-      console.error('Failed to fetch heroes:', error);
+      console.error(`Failed to fetch hero id=${id}:`, error);
     }
   }
 };
