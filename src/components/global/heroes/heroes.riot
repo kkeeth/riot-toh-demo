@@ -1,12 +1,11 @@
 <heroes>
   <h2>My Heroes</h2>
   <ul class="heroes">
-    <li
-      each={ hero in heroes }
-    >
+    <li each={ hero in heroes }>
       <button
         type="button"
-        class={ hero.id === selectedHero.id && 'selected'}
+        class={ hero.id === selectedHero.id && 'selected' }
+        onclick={ handleSelect }
         onclick={ handleSelect }
         data={ hero }
       >
@@ -17,13 +16,11 @@
   </ul>
 
   <hero-detail hero={ selectedHero } handle-input={ handleInput } />
-  <messages />
 
   <script>
     import heroService from '@/services/hero.service';
     import messageService from '@/services/message.service';
     import HeroDetail from '@/components/global/hero-detail/hero-detail.riot';
-    import Messages from '@/components/global/messages/messages.riot';
 
     export default {
       heroes: [],
@@ -32,9 +29,7 @@
         heroService.on('heroesUpdated', (heroes) => {
           this.heroes = heroes;
         });
-
         heroService.getHeroes();
-        messageService.add('HeroService: fetched heroes');
       },
       handleInput(e) {
         this.selectedHero.name = e.target.value;

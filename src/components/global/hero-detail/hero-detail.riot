@@ -5,14 +5,15 @@
       <span>id: </span>{ selectedHero.id }
     </div>
     <div>
-      <label for="hero-name">Hero name:</label>
-      <input
-        id="hero-name"
-        type="text"
-        value={ selectedHero.name }
-        placeholder="name"
-        oninput={ props.handleInput }
-      />
+      <label for="hero-name">Hero name:
+        <input
+          id="hero-name"
+          type="text"
+          value={ selectedHero.name }
+          placeholder="name"
+          oninput={ props.handleInput }
+        />
+      </label>
     </div>
   </div>
 
@@ -24,12 +25,8 @@
       },
     };
   </script>
-
   <style>
     /* HeroDetail's private CSS styles */
-    h2 {
-      color: #607D8B;
-    }
     input {
       padding: .5rem;
     }

@@ -1,0 +1,22 @@
+<dashboard>
+  <h2>Top Heroes</h2>
+  <div class="heroes-menu">
+    <a each={ hero in heroes }>
+      { hero.name }
+    </a>
+  </div>
+
+  <script>
+    import heroService from "@/services/hero.service";
+
+    export default {
+      heroes: [],
+      onBeforeMount() {
+        heroService.on('heroesUpdated', (heroes) => {
+          this.heroes = heroes.slice(1, 5);
+        });
+        heroService.getHeroes();
+      }
+    }
+  </script>
+</dashboard>

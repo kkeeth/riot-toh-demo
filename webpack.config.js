@@ -1,7 +1,9 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import webpack from "webpack";
 import path from "node:path";
 import { fileURLToPath } from 'url';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -10,7 +12,7 @@ export default {
     app: "./src/index.js",
   },
   output: {
-    path: path.resolve("dist"),
+    path: path.resolve("./dist"),
     filename: "[name].bundle.js",
     clean: true,
   },
@@ -47,7 +49,9 @@ export default {
   devServer: {
     hot: true,
     open: true,
-    historyApiFallback: true,
+    historyApiFallback: {
+      index: "index.html",
+    },
   },
   resolve: {
     alias: {
@@ -69,17 +73,13 @@ export default {
         ],
       },
       {
-        test: /\.css$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-          },
-        ],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "src/index.html",
     }),

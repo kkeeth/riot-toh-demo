@@ -1,4 +1,3 @@
-// import "ress";
 import "./style.css";
 import "@riotjs/hot-reload";
 import { component } from "riot";
@@ -9,4 +8,6 @@ import registerGlobalComponents from "./register-global-components.js";
 registerGlobalComponents();
 
 // mount the root tag
-component(App)(document.getElementById("root"));
+component(App)(document.getElementById("root"), {
+  title: "Tour of Heroes with Riot"
+});

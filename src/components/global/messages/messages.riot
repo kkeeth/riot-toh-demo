@@ -1,12 +1,12 @@
 <messages>
   <h2>Messages</h2>
 
+  <div each={ message in messages }>{ message }</div>
   <button
     type="button"
     class="clear"
     onclick={ clearMessages }
   >Clear messages</button>
-  <div each={ message in messages }>{ message }</div>
 
   <script>
     import messageService from '@/services/message.service';
@@ -16,15 +16,16 @@
       onBeforeMount() {
         messageService.on('messagesAdded', (messages) => {
           this.messages = messages;
+          this.update()
         });
         messageService.on('messagesCleared', (messages) => {
           this.messages = messages;
+          this.update()
         });
       },
       clearMessages() {
         messageService.clear();
-        this.update()
-      },
+      }
     }
   </script>
   <style>
@@ -34,7 +35,6 @@
       font-family: Arial, Helvetica, sans-serif;
       font-weight: lighter;
     }
-
     .clear {
       color: #333;
       background-color: #eee;
