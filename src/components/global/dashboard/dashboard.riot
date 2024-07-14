@@ -1,7 +1,7 @@
 <dashboard>
   <h2>Top Heroes</h2>
   <div class="heroes-menu">
-    <a each={ hero in heroes }>
+    <a each={ hero in heroes } href={ `/hero-detail/${hero.id}` }>
       { hero.name }
     </a>
   </div>
