@@ -2,7 +2,7 @@
   <h2>My Heroes</h2>
   <ul class="heroes">
     <li each={ hero in heroes }>
-      <a href={`/hero-detail/${selectedHero.id}`}>
+      <a href={`/hero-detail/${hero.id}`}>
         <span class="badge">{ hero.id }</span>
         <span class="name">{ hero.name }</span>
       </a>
@@ -11,32 +11,15 @@
 
   <script>
     import heroService from '@/services/hero.service';
-    import messageService from '@/services/message.service';
 
     export default {
       heroes: [],
-      selectedHero: {},
       onBeforeMount() {
         heroService.on('heroesUpdated', (heroes) => {
           this.heroes = heroes;
         });
         heroService.getHeroes();
       },
-      handleInput(e) {
-        this.selectedHero.name = e.target.value;
-        this.heroes.forEach((item) => {
-          if (item.id === this.selectedHero.id) {
-            item.name = e.target.value;
-          }
-        });
-        this.update();
-      },
-      handleSelect(e) {
-        this.selectedHero.id = e.target.closest('button').data.id;
-        this.selectedHero.name = e.target.closest('button').data.name;
-        messageService.add(`HeroesComponent: Selected hero id=${this.selectedHero.id}`);
-        this.update();
-      }
     }
   </script>
 

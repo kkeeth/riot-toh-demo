@@ -18,10 +18,16 @@
   </div>
 
   <script>
+    import heroService from '@/services/hero.service';
+
     export default {
       selectedHero: {},
-      onBeforeUpdate(props) {
-        this.selectedHero = props.hero;
+      onBeforeMount(props) {
+        heroService.on('getHero', (hero) => {
+          this.selectedHero = hero;
+        })
+
+        heroService.getHero(Number(props.id));
       },
     };
   </script>

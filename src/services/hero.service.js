@@ -15,6 +15,17 @@ const heroService = {
     } catch (error) {
       console.error('Failed to fetch heroes:', error);
     }
+  },
+  async getHero(id) {
+    try{
+      // const response = await fetch(`https://api.+xample.com/hero/${id}`);
+      // const heroes = await response.json();
+      const hero = HEROES.find(h => h.id === id);
+      messageService.add(`HeroService: fetched hero id=${id}`);
+      this.trigger('getHero', hero)
+    } catch (error) {
+      console.error('Failed to fetch heroes:', error);
+    }
   }
 };
 
