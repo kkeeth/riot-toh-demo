@@ -4,24 +4,29 @@
     <router>
       <div class="row">
         <nav class="menu column">
-          <a href="/dashboard">Dashboard</a>
-          <a href="/heroes">Heroes</a>
+          <a
+            each={ page in state.pages }
+            if={ page.nav }
+            href={ page.path }
+            class={ state.activePage === page ? 'active' : '' }
+          >
+            { page.label }
+          </a>
         </nav>
       </div>
-      <route path="/(dashboard)?">
-        <main is="dashboard" />
-      </route>
-      <route path="/heroes">
-        <main is="heroes" />
+      <route each={ page in state.pages } path={ page.path }>
+        <main is={ page.componentName } id={ route.params.id } />
       </route>
     </router>
     <messages />
   </div>
 
   <script>
+    import { Router, Route, route, toRegexp, match } from '@riotjs/route'
     import Heroes from "@/components/global/heroes/heroes.riot";
     import Messages from '@/components/global/messages/messages.riot';
-    import { Router, Route, route, toRegexp, match } from '@riotjs/route'
+    import HeroDetail from "@/components/global/hero-detail/hero-detail.riot";
+    import pages from "@/pages";
 
     export default {
       components: {
@@ -29,8 +34,18 @@
         Route,
       },
       state: {
-        activeRoute: null
-      }
+        pages,
+        activePage: null
+      },
+      onBeforeMount() {
+        const anyRouteStream = route('(.*)')
+        anyRouteStream.on.value((path) => {
+          const activePage = pages.find(p => match(path.pathname, toRegexp(p.path)))
+          this.update({
+            activePage
+          })
+        })
+      },
     }
   </script>
 
@@ -52,12 +67,13 @@
       margin-left: 10px;
     }
 
+    nav a.active {
+      color: white;
+      background-color: black;
+    }
     nav a:hover {
       color: white;
       background-color: #42545C;
-    }
-    nav a:active {
-      background-color: black;
     }
   </style>
 </app>
