@@ -14,10 +14,16 @@
           </a>
         </nav>
       </div>
-      <route each={ page in state.pages } path={ page.path }>
-        <main is={ page.componentName } id={ route.params.id } />
-      </route>
+      <div if={ state.showNotFound }>
+        <not-found />
+      </div>
+      <div if={ !state.showNotFound }>
+        <route each={ page in state.pages } path={ page.path }>
+          <main is={ page.componentName } id={ route.params.id } />
+        </route>
+      </div>
     </router>
+    <hr />
     <messages />
   </div>
 
@@ -26,6 +32,7 @@
     import Heroes from "@/components/global/heroes/heroes.riot";
     import Messages from '@/components/global/messages/messages.riot';
     import HeroDetail from "@/components/global/hero-detail/hero-detail.riot";
+    import NotFound from "@/components/global/not-found/not-found.riot";
     import pages from "@/pages";
 
     export default {
@@ -35,14 +42,16 @@
       },
       state: {
         pages,
-        activePage: null
+        activePage: null,
+        showNotFound: false,
       },
       onBeforeMount() {
         const anyRouteStream = route('(.*)')
         anyRouteStream.on.value((path) => {
           const activePage = pages.find(p => match(path.pathname, toRegexp(p.path)))
           this.update({
-            activePage
+            activePage,
+            showNotFound: !activePage
           })
         })
       },

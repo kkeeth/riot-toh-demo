@@ -50,3 +50,6 @@ button:disabled {
   color: #aaa;
   cursor: auto;
 }
+hr {
+  margin-top: 3rem;
+}
