@@ -4,14 +4,14 @@ import observable from '@riotjs/observable';
 import messageService from "@/services/message.service";
 
 const heroService = {
+  heroes: HEROES,
   async getHeroes() {
     try {
       // 実際は以下のように実装するが，今回はモックで実装
       // const response = await fetch('https://api.+xample.com/heroes');
       // const heroes = await response.json();
-      const heroes = HEROES;
       messageService.add('HeroService: fetched heroes');
-      this.trigger('heroesUpdated', heroes)
+      this.trigger('heroesUpdated', this.heroes)
     } catch (error) {
       console.error('Failed to fetch heroes:', error);
     }
