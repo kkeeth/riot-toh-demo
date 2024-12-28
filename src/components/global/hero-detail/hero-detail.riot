@@ -2,7 +2,7 @@
   <div if={ selectedHero.id }>
     <h2>{ selectedHero.name.toUpperCase() } Details</h2>
     <div>
-      <span>id: </span>{ selectedHero.id }
+      <span>id: { selectedHero.id }</span>
     </div>
     <div>
       <label for="hero-name">Hero name: </label>
@@ -18,7 +18,7 @@
   </div>
 
   <script>
-    import heroService from '@/services/hero.service';
+    import heroService from '@services/hero.service';
 
     export default {
       selectedHero: {},

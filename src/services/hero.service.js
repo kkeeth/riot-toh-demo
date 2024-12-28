@@ -1,7 +1,7 @@
-import { HEROES } from '@/services/mock-heroes';
+import { HEROES } from '@services/mock-heroes';
 import observable from '@riotjs/observable';
 
-import messageService from '@/services/message.service';
+import messageService from '@services/message.service';
 
 const heroService = {
   heroes: HEROES,
