@@ -1,0 +1,13 @@
+import './src/style.css';
+import '@riotjs/hot-reload';
+import { component } from 'riot';
+import App from './src/app.riot';
+import registerGlobalComponents from './src/register-global-components.js';
+
+// register
+registerGlobalComponents();
+
+// mount the root tag
+component(App)(document.getElementById('root'), {
+  title: 'Tour of Heroes with Riot',
+});
