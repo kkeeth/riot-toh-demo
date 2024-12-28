@@ -12,6 +12,9 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './src/components'),
     },
   },
+  test: {
+    environment: 'jsdom',
+  },
   build: {
     outDir:
       'dist' /** https://vitejs.dev/config/build-options.html#build-outdir */,
