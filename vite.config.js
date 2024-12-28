@@ -12,7 +12,7 @@ export default defineConfig({
   },
   build: {
     outDir:
-      'docs' /** https://vitejs.dev/config/build-options.html#build-outdir */,
+      'dist' /** https://vitejs.dev/config/build-options.html#build-outdir */,
     minify:
       'esbuild' /** https://vitejs.dev/config/build-options.html#build-minify */,
     target:
