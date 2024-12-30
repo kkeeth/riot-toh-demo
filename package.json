@@ -7,9 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "NODE_OPTIONS=\"--loader @riotjs/register\" c8 mocha --require jsdom-global/register src/**/*.spec.js",
-    "cov": "c8 report --reporter=text-lcov",
-    "cov-html": "c8 report --reporter=html",
+    "test": "vitest --reporter=verbose",
+    "coverage": "vitest run --coverage",
     "prepublishOnly": "npm test"
   },
   "repository": {
@@ -33,15 +32,14 @@
   "devDependencies": {
     "@riotjs/compiler": "^9.0.6",
     "@riotjs/register": "^9.0.0",
-    "c8": "^8.0.1",
-    "chai": "^4.3.10",
-    "css-loader": "^6.8.1",
+    "@vitest/coverage-istanbul": "^2.1.8",
+    "@vitest/coverage-v8": "^2.1.8",
     "jsdom": "^23.0.1",
     "jsdom-global": "^3.0.2",
-    "mocha": "^10.2.0",
     "prettier": "^3.3.2",
     "rollup-plugin-riot": "^9.0.2",
-    "vite": "^6.0.6"
+    "vite": "^6.0.6",
+    "vitest": "^2.1.8"
   },
   "dependencies": {
     "@riotjs/hot-reload": "^9.0.1",
@@ -49,5 +47,6 @@
     "@riotjs/observable": "^4.1.1",
     "@riotjs/route": "^9.1.2",
     "riot": "^9.2.2"
-  }
+  },
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
 }
