@@ -14,6 +14,16 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    coverage: {
+      provider: 'istanbul',
+      exclude: [
+        '**/node_modules/**',
+        'dist/**',
+        'src/mocks/**',
+        'public/**',
+        'index.js',
+      ],
+    },
   },
   build: {
     outDir:
